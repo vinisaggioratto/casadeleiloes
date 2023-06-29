@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
  * @author Adm
  */
 public class conectaDAO {
+    Connection conn = null;
     
     public Connection connectDB(){
         Connection conn = null;
@@ -28,6 +29,12 @@ public class conectaDAO {
             JOptionPane.showMessageDialog(null, "Erro ConectaDAO" + erro.getMessage());
         }
         return conn;
+    }
+    
+        public void fecharConexao(Connection conexao) throws SQLException {
+        if (conn != null) {
+            conn.close();
+        }
     }
     
 }
