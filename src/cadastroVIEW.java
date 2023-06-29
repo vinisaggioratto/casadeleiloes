@@ -14,6 +14,7 @@ public class cadastroVIEW extends javax.swing.JFrame {
      */
     public cadastroVIEW() {
         initComponents();
+        System.out.println(retornaStatusServidor());
     }
 
     /**
@@ -205,4 +206,15 @@ public class cadastroVIEW extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables
+
+public String retornaStatusServidor(){
+    conectaDAO conectaDAO = new conectaDAO();
+    
+    if(conectaDAO.connectDB() == null){
+        return "Não conectado";
+    }else{
+        return "Conectado";
+    }
+}
+
 }
